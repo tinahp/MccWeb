@@ -28,7 +28,7 @@ public class baseClassTest {
     ExtentReports reports;
     ExtentManager extentManager = new ExtentManager();
     // Create a Landing page Object
-    protected pageObject.LandingPage landingPage;
+    protected LandingPage landingPage;
     // Create other  page Object
     protected NewConverts NewConverts;
     protected AboutUS AboutUS;
@@ -40,7 +40,8 @@ public class baseClassTest {
         test = reports.createTest("BaseClassTest");
         // Set chromeBrowser
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
-        this.driver = new ChromeDriver();
+        driver = new ChromeDriver();
+        //this.driver = new ChromeDriver();
         test.log(Status.INFO, "Opening Browser");
         // maximize window
         driver.manage().window().maximize();
@@ -50,5 +51,6 @@ public class baseClassTest {
 
         //Instantiate login page after launching the browser
         landingPage = new LandingPage(driver);
+        Sermon = new Sermon(driver);
     }
 }
